@@ -25,3 +25,7 @@ final class DefaultActivateCardUseCase: ActivateCardUseCase {
         repository.activate(parameters: parameters)
     }
 }
+```
+elenem aricis .NET
+
+```
