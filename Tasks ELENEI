@@ -1,0 +1,94 @@
+# 1. Create the IShape Interface
+This interface will define a method CalculateArea that each shape will implement.
+
+```
+public interface IShape
+{
+    double CalculateArea();
+}
+```
+# 2. Implement the Circle Class
+```
+public class Circle : IShape
+{
+    public double Radius { get; set; }
+
+    // Constructor to initialize the radius
+    public Circle(double radius)
+    {
+        Radius = radius;
+    }
+
+    // Calculate the area of a circle
+    public double CalculateArea()
+    {
+        return Math.PI * Radius * Radius;
+    }
+}
+
+```
+# 3. Implement the Rectangle Class
+```
+public class Rectangle : IShape
+{
+    public double Width { get; set; }
+    public double Height { get; set; }
+
+    // Constructor to initialize the width and height
+    public Rectangle(double width, double height)
+    {
+        Width = width;
+        Height = height;
+    }
+
+    // Calculate the area of a rectangle
+    public double CalculateArea()
+    {
+        return Width * Height;
+    }
+}
+```
+# 4. Implement the Triangle Class
+```
+public class Triangle : IShape
+{
+    public double Base { get; set; }
+    public double Height { get; set; }
+
+    // Constructor to initialize the base and height
+    public Triangle(double baseLength, double height)
+    {
+        Base = baseLength;
+        Height = height;
+    }
+
+    // Calculate the area of a triangle
+    public double CalculateArea()
+    {
+        return 0.5 * Base * Height;
+    }
+}
+```
+# 5. Demonstrate Polymorphism
+```
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Create instances of different shapes
+        IShape circle = new Circle(5.0);
+        IShape rectangle = new Rectangle(4.0, 6.0);
+        IShape triangle = new Triangle(3.0, 5.0);
+
+        // Add shapes to a list to demonstrate polymorphism
+        List<IShape> shapes = new List<IShape> { circle, rectangle, triangle };
+
+        // Calculate and display the area for each shape
+        foreach (var shape in shapes)
+        {
+            Console.WriteLine($"The area of the {shape.GetType().Name} is: {shape.CalculateArea()}");
+        }
+    }
+}
+```
+
