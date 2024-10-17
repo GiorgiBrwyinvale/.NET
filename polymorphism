@@ -1,0 +1,71 @@
+using System;
+using System.Text;
+
+// Defining the IAnimal interface to represent polymorphism
+public interface IAnimal
+{
+    // Interface method that must be implemented by any class that implements IAnimal
+    void Speak();
+
+    // By convention, all classes can override the ToString() method (from System.Object)
+}
+
+// Dog class implementing the IAnimal interface
+public class Dog : IAnimal
+{
+    // Implementation of the Speak method from IAnimal interface
+    public void Speak()
+    {
+        Console.WriteLine("The dog barks.");
+    }
+
+    // Override of the ToString method to return a description of the dog
+    public override string ToString()
+    {
+        return "This is a dog.";
+    }
+}
+
+// Cat class implementing the IAnimal interface
+public class Cat : IAnimal
+{
+    // Implementation of the Speak method from IAnimal interface
+    public void Speak()
+    {
+        Console.WriteLine("The cat meows.");
+    }
+
+    // Override of the ToString method to return a description of the cat
+    public override string ToString()
+    {
+        return "This is a cat.";
+    }
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        // Demonstrating polymorphism through the interface
+        IAnimal myDog = new Dog();
+        IAnimal myCat = new Cat();
+
+        // Calls the implemented Speak methods
+        myDog.Speak(); // Output: The dog barks.
+        myCat.Speak(); // Output: The cat meows.
+
+        // Demonstrating the overridden ToString method
+        Console.WriteLine(myDog.ToString()); // Output: This is a dog.
+        Console.WriteLine(myCat.ToString()); // Output: This is a cat.
+
+        // Using StringBuilder to build a complex string
+        StringBuilder sb = new StringBuilder();
+        sb.Append("Animal Descriptions:\n");
+        sb.Append(myDog.ToString());
+        sb.Append("\n");
+        sb.Append(myCat.ToString());
+
+        // Output the StringBuilder's content
+        Console.WriteLine(sb.ToString());
+    }
+}
