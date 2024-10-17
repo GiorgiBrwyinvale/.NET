@@ -1,0 +1,45 @@
+Task: Build a C# Console Application Using the Generic Repository Pattern
+
+Task Overview
+You are required to build a C# console application that demonstrates the Generic Repository Pattern. This pattern will be enhanced with a Base Repository Class and Specific Repository Classes to manage Customer entities. Your application should support Create, Read, Update, and Delete (CRUD) operations and will be backed by an in-memory data store.
+
+Requirements
+Your solution must include the following components:
+IRepository<T> Interface
+Purpose: Defines the generic CRUD operations.
+Methods to Implement:
+T GetById(int id)
+IEnumerable<T> GetAll()
+void Add(T entity)
+void Update(T entity)
+void Delete(int id)
+IEntity Interface
+Has property int Id
+BaseRepository<T> Class
+Purpose: Implements the IRepository<T> interface.
+Features:
+where T : class, IEntity 
+Provides common CRUD functionalities using an in-memory data store (such as a List<T>).
+Designed to manage any type of entity through the use of generics.
+Customer Class
+Purpose: Represents the entity managed by the repository
+Implements IEntity
+Properties:
+int Id
+string Name
+string Email
+CustomerRepository Class
+Purpose: Inherits from BaseRepository<Customer>.
+Additional Features:
+Includes methods specific to Customer entities, such as searching by email.
+Program Class
+Purpose: Demonstrates how to use the repository classes to perform CRUD operations.
+
+Additional Guidelines
+Effective Use of Generics: Ensure that the BaseRepository<T> class leverages generics effectively to support multiple types, even though the primary focus for this task is on Customer entities.
+
+Optional
+Exception Handling: Implement proper exception handling, especially for scenarios where attempts are made to update or delete non-existing customers. This will ensure the application is robust and can handle unexpected situations gracefully.
+
+Good luck, and happy coding!
+
