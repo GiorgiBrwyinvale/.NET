@@ -18,3 +18,5 @@ A private property...(Data structure of your choice:)Use this property to store 
     AddContact(Person contact): This method allows users to add or update a contact. Use Name as a unique identifier to store contact
     if a contact with the same name already exists, iterator should be updated with the new Person object. if a contact does not exist, it should be added.
     GetContact(string name):This methos retrieves the Person object(contact) by providing the contacts name. if the contact is not found, it should throw ArgumentNullException ArgumentException with  a message indicating that the contact is not in the ContactsManager
+
+// SHEAMOWME FAILI TASKS ELENEI
