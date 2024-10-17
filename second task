@@ -1,0 +1,110 @@
+///IEntity
+public interface IEntity
+{
+    int Id { get; set; }
+} 
+////IRepository<T>
+using System.Collections.Generic;
+
+public interface IRepository<T> where T : IEntity
+{
+    T GetById(int id);
+    IEnumerable<T> GetAll();
+    void Add(T entity);
+    void Update(T entity);
+    void Delete(int id);
+}
+/////BaseRepository<T>
+using System.Collections.Generic;
+using System.Linq;
+
+public class BaseRepository<T> : IRepository<T> where T : class, IEntity
+{
+    protected List<T> _entities = new List<T>();
+
+    public virtual T GetById(int id)
+    {
+        return _entities.FirstOrDefault(e => e.Id == id);
+    }
+
+    public virtual IEnumerable<T> GetAll()
+    {
+        return _entities;
+    }
+
+    public virtual void Add(T entity)
+    {
+        _entities.Add(entity);
+    }
+
+    public virtual void Update(T entity)
+    {
+        var existing=GetById(entity.Id);
+        if (existing!=null)
+        {
+            _entities.Remove(existing);
+            
+            _entities.Add(entity);
+        }
+    }
+
+    public virtual void Delete(int id)
+    {
+        var entity = GetById(id);
+        if (entity != null)
+        {
+            _entities.Remove(entity);
+        }
+    }
+}
+/////customer
+public class Customer : IEntity
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Email { get; set; }
+}
+/////Program
+using System;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        var customerRepo = new CustomerRepository();
+
+        var customer1 = new Customer {Id=1,Name="saxeli gvari",Email="saxeli@example.com"};
+        
+        
+        var customer2 = new Customer {Id=2,Name="saxeli gvari", Email="saxeli@example.com"};
+
+        customerRepo.Add(customer1);
+    customerRepo.Add(customer2);
+
+        Console.WriteLine("all customers:");
+        foreach (var customer in customerRepo.GetAll()) 
+        {
+            Console.WriteLine($"Id: {customer.Id}, Name: {customer.Name}, Email: {customer.Email}");
+        }
+
+        Console.WriteLine("\nupdating customer 1:");
+    customer1.Name = "saxeli gvari";
+    customerRepo.Update(customer1);
+
+         var updatedCustomer = customerRepo.GetById(1);
+        Console.WriteLine($"Id: {updatedCustomer.Id}, Name: {updatedCustomer.Name}, Email: {updatedCustomer.Email}");
+
+       
+        Console.WriteLine("\ndeleting customer 2:");
+        
+        customerRepo.Delete(2);
+        
+
+        Console.WriteLine("all Customers after deletion:");
+        foreach (var customer in customerRepo.GetAll())
+        {
+            Console.WriteLine($"Id: {customer.Id}, Name: {customer.Name}, Email: {customer.Email}");
+        }
+    }
+}
+////errors migdebs ";" magram romel lineze ara T.T
