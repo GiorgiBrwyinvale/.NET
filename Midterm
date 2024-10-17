@@ -1,0 +1,42 @@
+           Task 1:
+            you are required to create a set of classes that represent geometric shapes such as circles, rectangles, and triangles. these shapes will implement an interfact calles Ishape to ensure consistency in how each shape calculates its area.
+                1.create an interface Ishape :
+            SqlUserDefinedAggregateAttribute an interface called Ishape with a single method: double CalculateArea(): this method will be responsible for calculating and returning the area of the shape
+            2. implement the Cricle class:
+            CreateInstanceBinder a class named Cricle that implements the IShape interface.
+            property: double Radius { get; set; }: represents the radius of the circle.
+            constructor: initialize the radius via constructor.
+                CalculateArea Method:
+                implement the CalculateArea() method to calculate the area of circle using the formula:
+        Area= Pi* radius^2
+        3.implement the Rectangle class:
+        CreateInstanceBinder a class name Rectangle that implements the IShape interface.
+        properties: double Width { get; set; }: represents the width of the rectangle.
+        double height { get; set; }: represents the width of the rectangle.
+        constructor: initialize Width and Height via the constructor.
+            CalculateArea method: implement the CalculateArea() method to calculate the area of the rectangle using the formula: Area= Width* Height.
+        4. implement the Triangle Class:
+                create a class named Triangle that implements the IShape interface.
+        properties: double base {get;set;}: represents the base of the triangle.
+    double Height {get;Set;}: Represents the height triangle.
+    constructor: initialize base and height via constructor.
+    CalculateArea Method: implement the CalculateArea() method to calculate the area of a triangle using the formula: Area = 0.5 * Base * Height.
+    requitements: ensure that each class properly implements the CalculateArea method according to the provided formulas, you should be able to create instances of Circle, Rectangle and Triangle and calculate their areas using the calculateArea method, Demonstrate polymorphysm by calculating the areas through an IShape reference.
+    Task 2: Building a contacts Manager 
+    Description:in this task, you are asked to create a simple contacts management system in c#. the system should allow users to add contacts, retrieve contact information, and print a list of all contacts.
+    instructions:
+1.create a person class:
+    Create a c# class named Person with the following properties: 
+    Name(string): represents the name of the contact.
+    PhoneNumber(string): represents the phone number of the contact
+    override toString method so that it returns a person in a string readable format.  example: Person-nameof: Merab, Phone Nymber: 2606060
+    2.Create c# class named contactsManager which implements the interface:
+    public interface IContactManager
+{
+    public void AddContact { person contact };
+    public Person GetContact(String name);
+    public void PrintAllContacts();
+    public string GetAllContacts();
+}
+
+///mainc amowme githubi
