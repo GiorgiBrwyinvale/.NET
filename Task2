@@ -1,0 +1,20 @@
+Building a contacts Manager 
+    Description:in this task, you are asked to create a simple contacts management system in c#. the system should allow users to add contacts, retrieve contact information, and print a list of all contacts.
+    instructions:
+1.create a person class:
+    Create a c# class named Person with the following properties: 
+    Name(string): represents the name of the contact.
+    PhoneNumber(string): represents the phone number of the contact
+    override toString method so that it returns a person in a string readable format.  example: Person-nameof: Merab, Phone Nymber: 2606060
+    2.Create c# class named contactsManager which implements the interface:
+    public interface IContactManager
+{
+    public void AddContact { person contact };
+    public Person GetContact(String name);
+    public void PrintAllContacts();
+    public string GetAllContacts();
+}
+A private property...(Data structure of your choice:)Use this property to store contacts.
+    AddContact(Person contact): This method allows users to add or update a contact. Use Name as a unique identifier to store contact
+    if a contact with the same name already exists, iterator should be updated with the new Person object. if a contact does not exist, it should be added.
+    GetContact(string name):This methos retrieves the Person object(contact) by providing the contacts name. if the contact is not found, it should throw ArgumentNullException ArgumentException with  a message indicating that the contact is not in the ContactsManager
